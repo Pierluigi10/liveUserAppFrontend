@@ -2,11 +2,11 @@ import "./App.scss";
 import { useState, useEffect } from "react";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
-const backendUrl = "http://localhost:3022";
 
 function App() {
   const [users, setUsers] = useState([]);
 
+  const backendUrl = "http://localhost:3022";
   // useEffect(() => {
   //   setUsers([
   //     {
@@ -18,13 +18,20 @@ function App() {
   //   ]);
   // }, []);
 
+  const loadUsers = async () => {
+    const response = await fetch(backendUrl);
+    const users = await response.json();
+    setUsers(users);
+  };
+
   useEffect(() => {
-    (async () => {
-      const response = await fetch(backendUrl);
-      const data = await response.json();
-      setUsers(data);
-    })();
+    loadUsers();
   }, []);
+
+  const handleDeleteButton = async (user) => {
+    await fetch(`${backendUrl}/deleteuser/${user._id}`, { method: "DELETE" });
+    loadUsers();
+  };
 
   return (
     <div className="App">
@@ -49,7 +56,10 @@ function App() {
                 <div className="data">{user.email}</div>
               </div>
               <div className="iconRow">
-                <button className="icon">
+                <button
+                  onClick={() => handleDeleteButton(user)}
+                  className="icon"
+                >
                   <RiDeleteBin6Line />
                 </button>
                 <button className="icon">

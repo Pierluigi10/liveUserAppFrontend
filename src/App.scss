@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: #eee; */
+}
+
+div.userCard {
+  background-color: #eee;
+  margin: 0 0 10px 0;
+  padding: 10px;
+  font-size: 1.3rem;
+  .row {
+    display: flex;
+    .data {
+      margin: 0 0 0 10px;
+      font-family: "Courier New", Courier, monospace;
+      color: brown;
+    }
+  }
+}

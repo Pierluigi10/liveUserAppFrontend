@@ -20,4 +20,17 @@ div.userCard {
       color: brown;
     }
   }
+  div.iconRow {
+    margin: 5px 0 0 0;
+    display: flex;
+    button {
+      margin: 0 5px 0 0;
+      background-color: #ccc;
+      width: 30px;
+      padding: 6px 0 3px 0;
+    }
+  }
+  .topRow {
+    margin: 0 0 20px 0;
+  }
 }

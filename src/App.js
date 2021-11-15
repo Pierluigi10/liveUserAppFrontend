@@ -1,6 +1,7 @@
 import "./App.scss";
 import { useState, useEffect } from "react";
-
+import { GrEdit } from "react-icons/gr";
+import { RiDeleteBin6Line } from "react-icons/ri";
 const backendUrl = "http://localhost:3022";
 
 function App() {
@@ -43,6 +44,14 @@ function App() {
               <div className="row">
                 <div className="label">E-Mail:</div>
                 <div className="data">{user.email}</div>
+              </div>
+              <div className="iconRow">
+                <button className="icon">
+                  <RiDeleteBin6Line />
+                </button>
+                <button className="icon">
+                  <GrEdit />
+                </button>
               </div>
             </div>
           );

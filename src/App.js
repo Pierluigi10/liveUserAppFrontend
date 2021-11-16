@@ -18,9 +18,12 @@ function App() {
   //   ]);
   // }, []);
 
+  // console.log("1",users);
   const loadUsers = async () => {
     const response = await fetch(backendUrl);
     const users = await response.json();
+    users.forEach((user) => (user.isEditingEmail = false));
+    // console.log("2", users);
     setUsers(users);
   };
 
@@ -31,6 +34,11 @@ function App() {
   const handleDeleteButton = async (user) => {
     await fetch(`${backendUrl}/deleteuser/${user._id}`, { method: "DELETE" });
     loadUsers();
+  };
+
+  const handleEditButton = (user) => {
+    user.isEditingEmail = !user.isEditingEmail;
+    setUsers([...users]);
   };
 
   const handleEmailChange = (user, e) => {
@@ -46,6 +54,11 @@ function App() {
         email: user.email,
       }),
     });
+    loadUsers();
+  };
+
+  const handleEditCancelButton = (user) => {
+    // user.isEditingEmail = !user.isEditingEmail;
     loadUsers();
   };
 
@@ -92,7 +105,7 @@ function App() {
                 >
                   <RiDeleteBin6Line />
                 </button>
-                <button className="icon">
+                <button className="icon" onClick={() => handleEditButton(user)}>
                   <GrEdit />
                 </button>
               </div>

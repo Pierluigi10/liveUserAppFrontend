@@ -33,6 +33,11 @@ function App() {
     loadUsers();
   };
 
+  const handleEmailChange = (user, e) => {
+		user.email = e.target.value;
+		setUsers([...users]);
+	}
+
   return (
     <div className="App">
       <h1>User Management APP</h1>
@@ -53,7 +58,21 @@ function App() {
               </div>
               <div className="row">
                 <div className="label">E-Mail:</div>
-                <div className="data">{user.email}</div>
+                {!user.isEditingEmail ? (
+                  <div className="data">{user.email}</div>
+                ) : (
+                  <div className="data editing">
+                    <input
+                      type="text"
+                      onChange={(e) => handleEmailChange(user, e)}
+                      value={user.email}
+                    />
+                    <button onClick={() => handleEmailSave(user)}>Save</button>
+                    <button onClick={() => handleEditCancelButton(user)}>
+                      Cancel
+                    </button>
+                  </div>
+                )}
               </div>
               <div className="iconRow">
                 <button

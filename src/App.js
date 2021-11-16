@@ -34,9 +34,20 @@ function App() {
   };
 
   const handleEmailChange = (user, e) => {
-		user.email = e.target.value;
-		setUsers([...users]);
-	}
+    user.email = e.target.value;
+    setUsers([...users]);
+  };
+
+  const handleEmailSave = async (user) => {
+    await fetch(`${backendUrl}/edituser/${user._id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: user.email,
+      }),
+    });
+    loadUsers();
+  };
 
   return (
     <div className="App">

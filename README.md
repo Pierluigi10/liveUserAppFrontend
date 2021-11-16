@@ -15,6 +15,10 @@ See also the [backend](https://github.com/Pierluigi10/user-app-backend).
 
 
 
-### Source:
 
- [onespace](https://onespace.netlify.app/howtos?id=433)
+## Source:  [onespace](https://onespace.netlify.app/)
+
+- [Create the frontend of a two-part user-management project](https://onespace.netlify.app/howtos?id=433)
+
+- [How to prepare and publish a Node/Express/MongoDB backend/frontend app to Heroku/Atlas](https://onespace.netlify.app/howtos?id=435)
+

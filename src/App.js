@@ -6,7 +6,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 function App() {
   const [users, setUsers] = useState([]);
 
-  const backendUrl = "http://localhost:3022";
+  // const backendUrl = "http://localhost:3022";
+  const backendUrl = "https://manage-user-app-backend.herokuapp.com/";
   // useEffect(() => {
   //   setUsers([
   //     {

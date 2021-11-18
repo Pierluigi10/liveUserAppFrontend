@@ -13,19 +13,8 @@ function App() {
 
   // const backendUrl = "http://localhost:3022";
   // const backendUrl = "https://manage-user-app-backend.herokuapp.com/";
-  const backendUrl = process.env.REACT_APP_BACKEND_URL
-  // useEffect(() => {
-  //   setUsers([
-  //     {
-  //       name: "nnn1",
-  //     },
-  //     {
-  //       name: "nnn2",
-  //     },
-  //   ]);
-  // }, []);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
-  // console.log("1",users);
   const loadUsers = async () => {
     const response = await fetch(backendUrl);
     const users = await response.json();
@@ -100,7 +89,7 @@ function App() {
   const handleFormSaveButton = (e) => {
     e.preventDefault();
     (async () => {
-      await fetch(`${backendUrl}/insertuser`, {
+      await fetch(`${backendUrl}/adduser`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

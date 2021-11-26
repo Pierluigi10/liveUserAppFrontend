@@ -13,9 +13,11 @@ See also the [backend](https://github.com/Pierluigi10/user-app-backend).
 
 
 
-## Deployed to Heroku
+## Backend Deployed to Heroku
 - [backend](https://manage-user-app-backend.herokuapp.com/)
-- [frontend](https://manage-user-app-frontend.herokuapp.com/) 
+
+## Frontend Deployed to Vercel
+- [frontend](https://user-app-frontend.vercel.app/) 
 
 
 
